@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  get 'home/training'
+
+  get 'home/rank'
+
   resources :ranks
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
