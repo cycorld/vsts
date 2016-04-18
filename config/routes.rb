@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :ranks, only: [:index, :create]
 
-  root 'home#index'
+  root 'home#training'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # Serve websocket cable requests in-process
