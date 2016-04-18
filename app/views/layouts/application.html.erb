@@ -5,9 +5,9 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
@@ -17,14 +17,12 @@
           <a href="/" class="brand-logo center">Vim Spartan</a>
           <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="/home/index">Home</a></li>
             <li><a href="/home/training">Training</a></li>
-            <li><a href="/home/rank">Rank</a></li>
+            <li><a href="/ranks">Rank</a></li>
           </ul>
           <ul class="side-nav" id="mobile-nav">
-            <li><a href="/home/index">Home</a></li>
             <li><a href="/home/training">Training</a></li>
-            <li><a href="/home/rank">Rank</a></li>
+            <li><a href="/ranks">Rank</a></li>
           </ul>
         </div>
       </nav>
@@ -32,25 +30,47 @@
     <main>
       <%= yield %>
     </main>
+    <!-- Modal Structure -->
+    <div id="chint" class="modal bottom-sheet">
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">닫기</a>
+      </div>
+      <div class="modal-content">
+        <img src="/img/vim_command.jpg" class="responsive-img">
+      </div>
+    </div>
+    <div id="mhint" class="modal bottom-sheet">
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">닫기</a>
+      </div>
+      <div class="modal-content">
+        <img src="/img/vim_move.jpg" class="responsive-img">
+      </div>
+    </div>
     <footer class="page-footer">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            <h5 class="white-text">Vim Spartan</h5>
+            <p class="grey-text text-lighten-4">누구나 vim을 사용할 수 있도록 최소한의 지식을 담았습니다</p>
           </div>
           <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
+            <h5 class="white-text">치트시트</h5>
             <ul>
-              <li><a class="grey-text text-lighten-3" href="/">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="/">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3 modal-trigger" href="#chint">vim 명령어 단축키</a></li>
+              <li><a class="grey-text text-lighten-3 modal-trigger" href="#mhint">vim 이동 단축키</a></li>
+            </ul>
+            <h5 class="white-text">추천 사이트</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3 modal-trigger" href="http://www.vimgolf.com/" target="_blank">vim 골프 : 최소한의 키로 목표달성하기</a></li>
+              <li><a class="grey-text text-lighten-3 modal-trigger" href="http://vim-adventures.com/" target="_blank">vim 어드벤처 : vim 단축키로 즐기는 게임</a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="footer-copyright">
         <div class="container">
-        © 2016 Copyright Cycorld
+        © 2013 - 2016 Copyright Cycorld
         <a class="grey-text text-lighten-4 right" href="mailto:charleschoi87@gmail.com">charleschoi87 (at) gmail.com</a>
         </div>
       </div>
@@ -58,6 +78,7 @@
     <script>
       $(document).ready(function () {
         $(".button-collapse").sideNav();
+        $('.modal-trigger').leanModal();
       });
     </script>
   </body>

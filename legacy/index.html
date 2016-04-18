@@ -195,7 +195,7 @@ shortcut = {
         'f12':123
       }
 
-      var modifiers = { 
+      var modifiers = {
 shift: { wanted:false, pressed:false},
        ctrl : { wanted:false, pressed:false},
        alt  : { wanted:false, pressed:false},
@@ -233,14 +233,14 @@ shift: { wanted:false, pressed:false},
           if(character == k) kp++;
           else {
             if(shift_nums[character] && e.shiftKey) { //Stupid Shift key bug created by using lowercase
-              character = shift_nums[character]; 
+              character = shift_nums[character];
               if(character == k) kp++;
             }
           }
         }
       }
 
-      if(kp == keys.length && 
+      if(kp == keys.length &&
           modifiers.ctrl.pressed == modifiers.ctrl.wanted &&
           modifiers.shift.pressed == modifiers.shift.wanted &&
           modifiers.alt.pressed == modifiers.alt.wanted &&
@@ -262,8 +262,8 @@ shift: { wanted:false, pressed:false},
       }
     }
     this.all_shortcuts[shortcut_combination] = {
-      'callback':func, 
-      'target':ele, 
+      'callback':func,
+      'target':ele,
       'event': opt['type']
     };
     //Attach the function with the event
@@ -688,7 +688,7 @@ shortcut.add(q[42][0], function() {
 		for(var i=1; i<57; i++)
 		images.push("img/lev"+i+".png");
 		// start preloading
-		for(var i=0; i<images.length; i++) 
+		for(var i=0; i<images.length; i++)
 		imageObj.src=images[i];
 		var reffer = parent.document.referrer;
 		var osinfo = navigator.appName+navigator.appVersion;

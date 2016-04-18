@@ -4,7 +4,7 @@ class RanksController < ApplicationController
   # GET /ranks
   # GET /ranks.json
   def index
-    @ranks = Rank.all
+    @ranks = Rank.all.order(:score).reverse
   end
 
   # GET /ranks/1
@@ -28,7 +28,7 @@ class RanksController < ApplicationController
 
     respond_to do |format|
       if @rank.save
-        format.html { redirect_to @rank, notice: 'Rank was successfully created.' }
+        format.html { redirect_to ranks_path, notice: 'Rank was successfully created.' }
         format.json { render :show, status: :created, location: @rank }
       else
         format.html { render :new }
