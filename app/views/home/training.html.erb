@@ -32,6 +32,7 @@
 </div>
 
 <script>
+var aws_s3_images = "https://s3.ap-northeast-2.amazonaws.com/vim-spartan/images/";
 var level = 1;
 var right = 0;
 var lock = false;
@@ -103,7 +104,7 @@ function levelup(n) {
   $("#level").html(level);
   $("#right").html(right);
   $("#answer").html(q[n-1][1]);
-  $("#question").attr("src", "/img/"+q[n][2]);
+  $("#question").attr("src", aws_s3_images + q[n][2]);
 }
   var $input = "<input style='width: 300px' type='text' id='input_cont' name='input_cont' value=''>";
 //command mode :
@@ -256,7 +257,7 @@ function correct_chk(n) {
   if(level == 56){
     if (!lock) {
       lock = true;
-      var is_save = confirm("끝입니다! " + right + "점을 기록하였습니다. 점수를 기록하시겠습니까?");
+      var is_save = confirm("끝입니다! 저장 후 종료 명령어는 :wq 입니다. " + right + "점을 기록하였습니다. 점수를 기록하시겠습니까?");
       if (is_save) {
         var username = prompt("이름을 적어주세요!", "");
         $.post('/ranks', {rank: {'name': username, 'score': right}}, function() {
@@ -442,7 +443,7 @@ shortcut.add(q[42][0], function() {
 		// set image list
 		images = new Array();
 		for(var i=1; i<57; i++)
-		images.push("/img/lev"+i+".png");
+		images.push(aws_s3_images + "lev"+i+".png");
 		// start preloading
 		for(var i=0; i<images.length; i++)
 		imageObj.src=images[i];
